@@ -1,0 +1,15 @@
+{
+  "name": "helpsheets2",
+  "version": "1.0.0",
+  "description": "Список моментов по верстке",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Андрей",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1"
+  }
+}

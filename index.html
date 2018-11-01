@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Checklist по верстке</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="main-header">
+    <nav>
+      <ul class="main-menu">
+        <li class="main-menu__item"><a href="#html">Checklist HTML</a></li>
+        <li class="main-menu__item"><a href="#css">Checklist CSS</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="js-error-message" hidden>Не работает без localStorage</div>
+  
+  <div class="project-name">
+    <h1>Здесь можно задать имя текущего проекта, которое сохранится до сброса всех checklist-ов</h1>
+    <p>
+      <input class="project-name__input js-project-name__input" type="text" placeholder="Имя текущего проекта"/>
+      <button class="btn js-project-name__btn">Ввести имя проекта</button>
+    </p>
+    <div class="project-name__output js-project-name__output"></div>
+  </div>
+  
+  <article class="checklist" id="html">
+    <h2>Список основных моментов HTML</h2>
+    
+    <button class="btn js-save-checklist--html" type="button">Сохранить checklist</button>
+    <button class="btn js-reset-checklist--html" type="button">Сбросить checklist</button>
+    
+    <!--CHEKLIST HTML -->
+    <ol class="cheklist__wrap js-checklist--html">
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="todo"/>
+          Использовать <b>TODO</b> для задач, которые еще нужно сделать: &lt;!-- TODO: текст задачи -->
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="html-valited"/>
+          Проверяем <b>валидность HTML</b>, в том числе иерахию заголовков
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="meta-tag"/>
+          Использовать <b>правильный meta-tag</b>: meta name="viewport" content="width=960" - для фикса; meta name="viewport" content="width=device-widt initial-scale=1" - для адаптива.
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="utf8-code"/>
+          <b>Нет смысла использовать мнемоники</b>, такие как &amp;mdash;, &amp;rdquo;, или &amp;#x263a;, когда все  файлы используют кодировку (UTF-8). Исключение — служебные символы HTML (например < &amp;lt; > &amp;gt; и & &amp;amp;) а так же вспомогательные и “невидимые” символы (например неразрывный пробел &amp;nbsp;). 
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="semantics-tags"/>
+          Использование <b>семантических тегов</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="bem-named"/>
+          <b>Использовать БЭМ:</b> БЭМ <b>названия</b> писать более конкретные <b>в зависимости от контента,</b> а не общие как в справочнике названия классов
+        </label>
+        <a href="http://nicothin.github.io/idiomatic-pre-CSS/ " target="_blank">Общее описание БЭМ </a>
+        <a href="https://github.com/yoksel/common-words" target="_blank">Примеры названий классов</a>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="new-line"/>
+          <b>Выделяйте новую строку</b> для каждого <b>блочного, табличного или списочного </b>элемента и ставьте отступы для каждого дочернего элемента. 
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="hidden-title"/>
+          Для группировки контента используем заголовки не по дизайну (<b>visually-hidden</b>)
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="img-size"/>
+          Указывать <b>размеры картинок</b>, особенно SVG
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="alt-text"/>
+          <b>Картинкам</b> указывать не пустой <b>ALT</b>, интерактивным компонентам <b>Скрытый текст либо ARIA-LABEL</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="accessibility"/>
+          Использовать хотябы <b>основные роли</b>:
+        </label>
+        <a href="http://nicothin.pro/page/dostupnost-veb-stranicy" target="_blank">Пример с использование основных ролей</a>
+        <details>
+          <summary open>Пример основных ролей</summary>
+          <pre>
+            &lt;!-- Главный заголовок сайта или внутренний заголовок страницы -->
+            &lt;header role="banner">...&lt;/header>
+
+            &lt;!-- Навигация по сайту или по странице -->
+            &lt;nav role="navigation">&lt;ul>...&lt;/ul>&lt;/nav>
+
+            &lt;!-- Основной контент -->
+            &lt;main role="main">
+              &lt;!-- Важная срочная информация -->
+              &lt;div role="alert">&lt;/div>
+              &lt;!-- Большой раздел страницы -->
+              &lt;section role="region">&lt;/section>
+              &lt;!-- Самостоятельный элемент страницы -->
+              &lt;article role="article">&lt;/article>
+              &lt;!-- Очень странная «кнопка» -->
+              &lt;div role="button">button&lt;/div>
+            &lt;/main>
+
+            &lt;!-- Второстепенный контент или информационный блок -->
+            &lt;aside role="complementary">
+              &lt;!-- Поиск по сайту -->
+              &lt;form role="search">...&lt;/form>
+            &lt;/aside>
+
+            &lt;!-- Какая то обобщающая информация -->
+            &lt;footer role="contentinfo">...&lt;/footer>
+          </pre>
+        </details>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="icon-type"/>
+          <b>НЕ использовать иконочные шрифты</b>. Зменить на SVG-иконки.
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="form-semantics"/>
+          <b>Поля форм</b>: Использовать правильные <b>type</b> полей input, давать атрибут <b>required</b>, объединять подпись полей с помощью <b>label</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="js-selector-name"/>
+        <b>JS</b> привязывать <b>не по классам для стилизации</b>: по id, data-адрибутам или спец. классам с приставкой "js-"
+        </label>
+      </li>
+    </ol>
+  </article>
+  
+  <article class="checklist" id="css">
+    <h2>Список основных моментов CSS</h2>
+    
+    <button class="btn js-save-checklist--css" type="button">Сохранить checklist</button>
+    <button class="btn js-reset-checklist--css" type="button">Сбросить checklist</button>
+    
+    <!--CHEKLIST CSS-->
+    <ol class="cheklist__wrap js-checklist--css">
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="sort-css"/>
+          <b>Упорядочивание объявлений CSS</b>: позиционирование, блочная модель, типографика, фон и цвет.
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="normalize-used"/>
+          Используем <b>normalize</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="global-style"/>
+          <b>Минимум глобальных свойств</b> (кроме, например, общие шрифты, ограничение размера картинок max-width:100%)
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="block-overflow"/>
+          Учитывать <b>переполнение блоками, текстом</b> («Электрокардиографической одиннадцатиклассницей, предпочитающей циклопентанпергидрофенантрен» и «Ю Ли»)
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="progressive"/>
+          Помнить про <b>прогрессивное улучшение</b>. <b>Базовый функционал должен работать без JS</b>. Изменения CSS должны быть атомарными, т.е. улучшения должны менять весь блок, а не его части отменяя другие изменения. Ссылка на формы входа, обратной связи, карты  - дожны вести на отдельные странцы, чтобы и без JS работали. Галерении должны быть отдельными слайдами, а уже при добавлении JS превращаться в полноценный слайдер
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="content-blocks"/>
+          Контентные блоки: <b>блоки</b>, которые могу <b>добавляться через CMS</b> стилизовать через каскад, без добавления классов. Контент-менеджер не должен заботиться о классах!
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="text-blocks"/>
+          <b>Текстовые блоки:</b> в текстовом контенте стили писать с отступами <b>с учетом возможного добавления</b> других параграфов, блоков, даже если их там сейчас нет
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="block-grid"/>
+          <b>Не смешивать</b> стили блоков <b>сетки и</b> самих <b>блоков</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="click-space"/>
+          <b>Клик-область не меньше </b> габаритов элемента. А длямелких элементов без очевидных границ клик-область нужно делать заметно больше габаритов
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="element-hidden"/>
+          <b>Сокрытие контентных и интерактивных элементов</b> делать с помощью специального класса <b>visually-hidden</b>, чтобы они были доступны скринридеру
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="accessibility-css"/>
+          Доступность: там где <b>:active, :hover</b> добавлять состояние <b>:focus</b>.
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="padding-container"/>
+          <b>У центровщика</b> использовать <b>дополнительный padding</b>, чтобы контент не прилипал к краям экрана на минимальных ширинах. Задавать <b>минимальные ширины</b>, чтобы контент сильно не ужимался
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="mobile-first"/>
+          Верстать <b>сначала для мобильных версий</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="css-img-size"/>
+          <b>Страховать размеры картинок и фона в CSS</b>. Для background: background-size: cover, для img object-fit: cover и полифил object-fit-images
+        </label>
+        <a href="https://github.com/bfred-it/object-fit-images" target="_blank">Полифил object-fit-image</a>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="small-img-datauri"/>
+          Мелкие фоновые изображения: преобразовывать в <b>data-uri</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="backup-color"/>
+          Background - перед заданием картинки задавать какой-то <b>резервный фоновый цвет в тон картинке</b>
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="svg-sprites"/>
+          <b>Использовать SVG спрайты </b>для объединения мелких картинок, как интерактивных (inline sprite) так и нет
+        </label>
+        <a href="http://nicothin.pro/page/svg-sprites" target="_blank">SVG спрайты подробнее</a>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="css-animations"/>
+          <b>CSS-анимации</b> обрабатываются GPU если aнимируются opacity и/или transform, у элемента есть transform: translateZ(...) , на родителе есть filter
+        </label>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="color-name"/>
+          <b>Именование цветов.</b> Тона серого — по уровню серого. (@gray-light, @gray, @gray-dark, @gray-darken). Все прочие цвета — по смыслу цвета, без упоминания цвета (@color-main, @color-secondary, @color-danger, @color-success) 
+        </label>
+        <a href="http://nicothin.pro/page/preprocessor-color-functions" target="_blank">Именование цветов</a>
+      </li>
+      <li class="checklist__item">
+        <label>
+          <input type="checkbox" name="margin-for-cards"/>
+          <b>Каталог из карточек</b> можно сделать более гибким, если не убирать margin у каждого n-го элемента, а задать <b>отрицательный margin контейнеру карточек</b>, чтобы он коменсировал margin у всех карточек с какого-то края контейнера 
+        </label>
+      </li>
+    </ol>
+  </article>
+  
+  <button class="btn btn--global js-global-reset-checklist" type="button">Сбросить все cheklist-ы</button>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
